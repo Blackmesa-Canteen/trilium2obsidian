@@ -43,8 +43,17 @@ Other known limitations:
 
 ## Install
 
+Not published on PyPI — install straight from GitHub:
+
 ```bash
-pip install trilium2obsidian
+pip install git+https://github.com/Blackmesa-Canteen/trilium2obsidian.git
+```
+
+Or clone and install locally:
+
+```bash
+git clone https://github.com/Blackmesa-Canteen/trilium2obsidian.git
+pip install ./trilium2obsidian
 ```
 
 ## Quickstart
