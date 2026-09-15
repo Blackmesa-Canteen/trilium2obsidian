@@ -43,17 +43,34 @@ Other known limitations:
 
 ## Install
 
-Not published on PyPI — install straight from GitHub:
+Not published on PyPI. Three ways to install:
+
+**From a [release](https://github.com/Blackmesa-Canteen/trilium2obsidian/releases)**
+(a wheel built and tested in CI — download the `.whl` from the release
+assets, then):
+
+```bash
+pip install ./trilium2obsidian-<version>-py3-none-any.whl
+```
+
+**Straight from GitHub** (always the current `main`):
 
 ```bash
 pip install git+https://github.com/Blackmesa-Canteen/trilium2obsidian.git
 ```
 
-Or clone and install locally:
+**Clone and install locally:**
 
 ```bash
 git clone https://github.com/Blackmesa-Canteen/trilium2obsidian.git
 pip install ./trilium2obsidian
+```
+
+All three register a normal `trilium2obsidian` console command and uninstall
+the standard way:
+
+```bash
+pip uninstall trilium2obsidian
 ```
 
 ## Quickstart
@@ -94,6 +111,19 @@ python -m venv .venv
 
 Tests run against a small synthetic fixture database (`tests/conftest.py`)
 — never against a real Trilium backup.
+
+### Cutting a release
+
+Bump `version` in `pyproject.toml`, then tag and push:
+
+```bash
+git tag v0.2.0
+git push origin v0.2.0
+```
+
+The `Release` workflow runs the test suite, builds an sdist + wheel, and
+publishes them to a GitHub Release matching the tag. It fails closed if the
+tag doesn't match `pyproject.toml`'s version.
 
 ## License
 
